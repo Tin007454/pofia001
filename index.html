@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="th"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>หมาแก่ ♡ หมาเด็ก </title>
+<style>
+*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#030108;color:#fff1fc;font-family:system-ui,sans-serif}canvas{position:fixed;inset:0;width:100%;height:100%;touch-action:none}header{position:fixed;top:6vh;left:0;right:0;text-align:center;pointer-events:none}.over{font:10px monospace;letter-spacing:5px;color:#c695cb}h1{font-family:Georgia,serif;font-style:italic;font-weight:400;font-size:clamp(33px,5vw,62px);margin:14px 0 10px;text-shadow:0 0 30px #c665ad88}header p{font-size:12px;color:#b9a0c0;letter-spacing:1px}.orbit{position:fixed;left:50%;top:51%;width:min(86vw,1060px);height:34vh;transform:translate(-50%,-15%);pointer-events:none}.portal{position:absolute;border:0;background:none;color:#eac6ef;cursor:pointer;pointer-events:auto;text-align:center;min-width:95px;padding:12px;text-shadow:0 0 16px #d994f7}.portal:hover .symbol,.portal:focus-visible .symbol{transform:translateY(-7px) scale(1.15);filter:drop-shadow(0 0 22px #e892ff)}.symbol{display:block;font-size:35px;margin-bottom:10px;transition:.3s;filter:drop-shadow(0 0 12px #c980ef)}.portal small{display:block;font-size:11px;letter-spacing:1px}.letter{left:1%;top:7%}.memory{right:1%;top:7%}.wish{left:50%;bottom:0;transform:translateX(-50%)}footer{position:fixed;bottom:22px;left:0;right:0;text-align:center;font-size:10px;letter-spacing:1px;color:#88758f;pointer-events:none}.sound{position:fixed;right:25px;bottom:22px;background:transparent;border:1px solid #ffffff26;border-radius:20px;color:#c5a8ca;padding:8px 14px;font-size:10px;cursor:pointer}.veil{position:fixed;inset:0;background:#06020dde;backdrop-filter:blur(14px);display:grid;place-items:center;padding:22px;z-index:3}.veil[hidden]{display:none}.card{width:min(100%,490px);max-height:88vh;overflow:auto;text-align:center;border:1px solid #c58ee52e;border-radius:25px;padding:35px 32px;background:radial-gradient(ellipse at top,#52235955,transparent 65%),#100919;box-shadow:0 0 100px #993ab31a;animation:appear .45s ease both}.card h2{font-family:Georgia,serif;font-size:28px;font-weight:400;margin:14px 0 22px}.card p{font-size:14px;color:#d8bddf;line-height:2.05;white-space:pre-line}.close{margin-top:22px;background:#ffffff07;border:1px solid #dca4ef44;border-radius:30px;padding:10px 28px;color:#edc8f4;font:10px monospace;letter-spacing:2px;cursor:pointer}.big{font-size:46px}.cards{display:flex;justify-content:center;gap:13px;margin:25px 0}.fortune{width:105px;height:150px;border:1px solid #d59ee15c;border-radius:13px;background:linear-gradient(145deg,#382047,#120b20);color:#f6d1ff;font-size:30px;cursor:pointer;transition:transform .3s}.fortune:hover{transform:translateY(-8px)}.fortune.chosen{border-color:#ffe2fa;box-shadow:0 0 25px #c575d65c;transform:translateY(-8px)}#photo{display:block;width:100%;max-height:300px;object-fit:contain;border-radius:12px;background:#07040b}.upload{display:inline-block;margin-top:18px;border-bottom:1px solid #d597e8;color:#e6b5f1;cursor:pointer;font-size:12px;padding:5px}button:focus-visible,.upload:focus-within{outline:2px solid #fff;outline-offset:5px}#photoInput{position:absolute;width:1px;height:1px;opacity:0}.caption{font-size:11px!important;color:#8f769b!important}@keyframes appear{from{opacity:0;transform:translateY(16px) scale(.97)}to{opacity:1;transform:none}}@media(max-width:600px){header{top:7vh}.over{font-size:8px;letter-spacing:3px}.orbit{width:97vw;top:55%;height:29vh}.portal{min-width:82px;padding:8px}.symbol{font-size:28px}.portal small{font-size:10px}.letter{left:0}.memory{right:0}.card{padding:28px 22px}footer{bottom:55px;font-size:9px}.sound{right:50%;transform:translateX(50%);bottom:16px}.fortune{width:80px;height:125px}}
+
+/* Local welcome screen */
+.welcome{position:fixed;inset:0;z-index:10;display:grid;place-items:center;padding:20px;background:radial-gradient(ellipse at 58% 52%,#260911 0%,#100406 48%,#080304 100%)}
+.welcome[hidden]{display:none}.welcome-card{width:min(100%,440px);min-height:425px;padding:39px 28px 34px;text-align:center;border:1px solid #ffffff16;border-radius:23px;background:radial-gradient(ellipse at 50% 25%,#22030a77,transparent 80%),linear-gradient(130deg,#1c0b10,#120005 65%,#19070d);box-shadow:inset 0 1px 0 #ffffff0a,0 20px 90px #0008}
+.welcome h2{font-family:Georgia,'Times New Roman',serif;font-weight:700;font-style:normal;font-size:clamp(29px,5.8vw,43px);line-height:1.03;letter-spacing:-1.2px;margin:0;color:#fffaf6;text-shadow:0 2px 2px #000,0 0 15px #ffffff10}.welcome-art{display:block;width:157px;height:142px;margin:19px auto 13px;filter:drop-shadow(0 3px 1px #0008)}.welcome-sub{font-size:9px;letter-spacing:2px;color:#e7cbd1;margin:12px 0 21px}.enter{position:relative;width:min(100%,255px);min-height:36px;border:1px solid #ffc0cd99;border-radius:30px;background:linear-gradient(#ec9ab0,#d47c95);box-shadow:0 4px 0 #742b40,0 5px 22px #f388a448,inset 0 1px 2px #ffdae8;color:#fff9fb;font-size:9px;letter-spacing:2px;font-weight:800;padding:10px 28px 10px 15px;cursor:pointer;transition:filter .2s,transform .2s}.enter:hover{filter:brightness(1.13);transform:translateY(-1px)}.enter-sticker{position:absolute;right:-10px;top:0;width:34px;height:37px;transform:rotate(-12deg)}
+@media(max-width:480px){.welcome-card{width:min(100%,350px);min-height:365px;padding:32px 24px 29px}.welcome h2{font-size:35px}.welcome-art{width:135px;height:120px;margin:18px auto 12px}.welcome-sub{font-size:8px;letter-spacing:1.5px}.enter{width:225px;font-size:8px}}
+
+/* Match the reference's immersive pink galaxy. */
+body{background:#000}body:not(.inside)>.orbit,body:not(.inside)>header,body:not(.inside)>footer,body:not(.inside)>.sound{visibility:hidden}
+body.inside header{top:22px;opacity:.55}body.inside header .over{font-size:8px;letter-spacing:3px}body.inside header h1{font-size:20px;margin:5px 0;font-style:normal}body.inside header p{display:none}.orbit{top:55%;height:24vh;width:min(92vw,1060px);opacity:0;transition:opacity 1s 1.6s}body.inside .orbit{opacity:1}.portal .symbol{font-size:42px;filter:drop-shadow(0 0 12px #fb5dac)}.portal small{color:#ffbddc;text-shadow:0 0 12px #ff3eaf}.letter{left:4%;top:14%}.memory{right:5%;top:5%}.wish{bottom:-3%}.card{background:radial-gradient(ellipse at top,#48132355,transparent 70%),#16060c;border-color:#e693ad33;box-shadow:0 0 90px #f7398918}.veil{background:#070104df}.card h2{color:#fff5ed;font-weight:700}.card p{color:#e0bdc9}.close{border-color:#f2a7c044}.photo-frame{width:100%;height:180px;display:grid;place-items:center;font-size:78px;background:radial-gradient(ellipse at center,#77294d,#10070d 72%);border:1px solid #f5acd52e;border-radius:14px;margin:0 auto 18px;box-shadow:0 0 20px #e665ae16}.card .caption{color:#bd8da2!important}.fortune{background:linear-gradient(145deg,#4c1a35,#170711);border-color:#e8a1c159}.fortune.chosen{box-shadow:0 0 25px #ff65b65c}footer{opacity:.6;font-size:9px}.sound{font-size:9px}.welcome.leaving{opacity:0;transform:scale(1.08);transition:opacity .5s,transform .6s;pointer-events:none}@media(max-width:600px){body.inside header{top:20px}.orbit{top:58%;height:22vh}.portal .symbol{font-size:32px}.portal small{font-size:8px}.photo-frame{height:150px}}
+
+.letter-picture{height:auto;min-height:150px;overflow:hidden;padding:8px}.letter-picture img{display:block;width:100%;max-height:280px;object-fit:contain;border-radius:10px}.fortune{padding:0;overflow:hidden;flex-shrink:1}.fortune img{display:block;width:100%;height:100%;object-fit:cover;object-position:center;transition:filter .3s}.fortune.chosen img{filter:brightness(1.12)}
+
+.welcome-art{object-fit:contain;width:157px;height:142px}
+.letter-picture{width:100%;aspect-ratio:16/9;height:auto;min-height:0;padding:0;overflow:hidden;display:flex;align-items:center;justify-content:center;background:#10070d}
+.letter-picture img{display:block;width:100%;height:100%;max-height:none;object-fit:contain;border-radius:10px}
+@media(max-width:480px){.welcome-art{width:135px;height:120px}.letter-picture{height:auto;min-height:0}}
+
+/* Fill the letter animation's landscape frame without side bars. */
+.letter-picture{aspect-ratio:16/9;position:relative;display:block;padding:0;overflow:hidden}
+.letter-picture img{position:absolute;inset:0;width:100%;height:100%;max-height:none;object-fit:cover;object-position:center 42%;border-radius:10px}
+
+.portal .symbol{display:flex;align-items:center;justify-content:center;height:72px;margin-bottom:7px;filter:drop-shadow(0 0 9px #f880bc55)}
+.portal-sticker{display:block;width:78px;height:78px;object-fit:contain}
+@media(max-width:600px){.portal .symbol{height:60px}.portal-sticker{width:65px;height:65px}}
+
+/* Jun Lemon — cream paper, mint, candy pink and sticker borders. */
+:root{--ink:#304c48;--mint:#c5e5d7;--pink:#ed8ca6;--paper:#fffaf0;--line:#56786a}
+html,body{background:var(--paper);color:var(--ink);font-family:ui-rounded,'Segoe UI',system-ui,sans-serif}
+.welcome{background:radial-gradient(circle at 16% 22%,#f5cddd77 0,transparent 33%),radial-gradient(circle at 85% 75%,#baded077 0,transparent 40%),#f8f5e9;background-size:auto}
+.welcome:before{content:'';position:absolute;inset:0;pointer-events:none;opacity:.32;background-image:radial-gradient(#81a896 1px,transparent 1px);background-size:22px 22px}
+.welcome-card{position:relative;width:min(100%,440px);min-height:460px;padding:40px 28px 34px;border:2px solid #648374;border-radius:28px;background:#fffdf5;box-shadow:8px 9px 0 #c2d9c8,0 20px 60px #53796417;overflow:visible}
+.welcome-card:before{content:'หมาแก่ ♡ หมาเด็ก ';display:block;width:max-content;margin:-55px auto 25px;padding:10px 22px;border:1px solid #729381;border-radius:8px;background:#d8eadd;color:#466955;font:bold 10px monospace;letter-spacing:3px;transform:rotate(-4deg)}
+.welcome-card:after{content:' ';display:block;margin-top:23px;font:italic 12px Georgia;color:#7b9a87}
+.welcome h2{color:#365c50;font:700 clamp(30px,5.8vw,42px)/1.08 Georgia,serif;letter-spacing:-1px;text-shadow:none}
+.welcome-art{width:185px;height:165px;margin:19px auto 10px;filter:drop-shadow(0 5px 0 #a7cbb52b)}
+.welcome-sub{color:#8d6a72;font-size:9px;letter-spacing:2px}
+.enter{background:#f2a4b9;color:#593444;border:2px solid #7a4c5c;box-shadow:0 4px 0 #b66e85;min-height:42px;font-size:9px;letter-spacing:1px;width:270px}
+.enter:hover{background:#f8b9ca}.enter-sticker{width:37px;height:42px;top:2px}
+body.inside header{opacity:1;top:24px}header .over{color:#719783;letter-spacing:3px}body.inside header h1{font-family:Georgia,serif;color:#3f6b5a;font-size:26px;text-shadow:none;font-style:italic;margin-top:8px}
+.portal{padding:11px 14px;border-radius:18px;background:#fffdf2d9;border:1px solid #7e9f8959;box-shadow:3px 4px 0 #bdd5c286;text-shadow:none}
+.portal .symbol{height:73px;filter:none;margin-bottom:2px}.portal-sticker{width:86px;height:86px;filter:drop-shadow(0 3px 0 #6d8b7533)}.portal small{color:#4d715d;text-shadow:none;font-weight:600;font-size:10px}
+.portal:hover{background:#fffdf7;border-color:#749881}.portal:hover .symbol{filter:none}
+footer{color:#698773;opacity:1;letter-spacing:.5px}.sound{background:#fffaf0dd;color:#54765f;border:1px solid #9bb69f;box-shadow:2px 2px 0 #c8dec7}
+.veil{background:#344d426b;backdrop-filter:blur(10px)}.card{background:#fffaf0;border:2px solid #729680;border-radius:24px;box-shadow:7px 8px 0 #9ab7a277,0 20px 90px #172e3233;color:#304c48}
+.card h2{color:#446951;font-family:Georgia,serif;font-weight:700}.card p{color:#61715f}.card .caption{color:#8d9480!important}.close{background:#d6e7d5;border:1px solid #759880;color:#476d50;font-weight:700;box-shadow:0 3px 0 #a1bfa6;letter-spacing:1px}
+.photo-frame{background:#e2eedd;border:1px solid #acc8ac;box-shadow:none;border-radius:16px}.letter-picture{background:#e6eedd;padding:0}.upload{color:#507f62;border-color:#83ad8a}
+.fortune{border:2px solid #93b49a;border-radius:14px;background:#e0ebdc;box-shadow:3px 4px 0 #d0dfc9}.fortune.chosen{border-color:#c77493;box-shadow:0 0 0 4px #edb1c45c;transform:translateY(-8px)}
+.theme-sticker{display:block;width:105px;height:105px;object-fit:contain;margin:0 auto 10px}.jun-label{position:fixed;left:22px;top:24px;padding:8px 13px;background:#ffffffb0;border:1px solid #a9c4ae;border-radius:7px;color:#5f8268;font:bold 9px monospace;letter-spacing:1.5px;transform:rotate(-4deg);pointer-events:none;visibility:hidden}body.inside .jun-label{visibility:visible}
+@media(max-width:600px){.welcome-card{width:min(100%,350px);min-height:440px;padding:39px 21px 25px}.welcome h2{font-size:34px}.welcome-art{width:170px;height:155px}.enter{width:min(100%,255px);font-size:8px}.portal{padding:7px 8px;border-radius:14px}.portal .symbol{height:56px}.portal-sticker{width:66px;height:66px}.portal small{font-size:8px}.jun-label{top:12px;left:12px;font-size:7px;padding:6px 8px}body.inside header{top:55px}body.inside header h1{font-size:21px}.card{padding:26px 20px}.theme-sticker{width:90px;height:90px}}
+</style></head><body>
+<section class="welcome" id="welcome" aria-label="หน้าแรกของขวัญวันเกิด">
+ <div class="welcome-card">
+  <h2>หมาเด็ก <br>ถึงหมาแก่</h2>
+  <img class="welcome-art" src="assets/welcome-sticker.webp" alt="สติกเกอร์คู่รัก Jun Lemon">
+  <p class="welcome-sub"></p> 
+  <button class="enter" id="enter">เปิดเลยๆ
+   <svg class="enter-sticker" viewBox="0 0 38 43" aria-hidden="true"><path d="M19 2C7-2-3 12 4 25L18 41L24 29C38 25 37 7 27 4Z" fill="#fffdf8" stroke="#40232d" stroke-width="1.2"/><path d="M18 25C2 14 12 7 18 13C23 4 36 14 18 25Z" fill="#e8567f" stroke="#41232c" stroke-width="1.5"/></svg>
+  </button>
+ </div>
+</section>
+
+<div class="jun-label" aria-hidden="true">JUN LEMON ♡</div><canvas id="universe" aria-label="หัวใจอนุภาคสีชมพูหมุนอยู่เหนือกาแล็กซีสีม่วง"></canvas>
+<header><div class="over">หมาแก่ ❤️ หมาเด็ก</div><h1>Happy Birthday, my little sunshine.</h1><p>ในจักรวาลนี้ เธอคือคนพิเศษเสมอ ♡</p></header>
+<nav class="orbit" aria-label="ของขวัญวันเกิด"><button class="portal letter" data-open="letter"><span class="symbol"><img class="portal-sticker" src="assets/icon-letter.webp" alt="จดหมายถึงเธอ"></span><small>จดหมายถึงเธอ</small></button><button class="portal memory" data-open="memory"><span class="symbol"><img class="portal-sticker" src="assets/icon-memory.webp" alt="ความทรงจำของเรา"></span><small>ความทรงจำของเรา</small></button><button class="portal wish" data-open="wish"><span class="symbol"><img class="portal-sticker" src="assets/icon-wish.webp" alt="คำอวยพรจากดวงดาว"></span><small>คำอวยพรจากดวงดาว</small></button></nav>
+<footer>ลากเพื่อหมุนจักรวาล · แตะดวงดาวเพื่อเปิดของขวัญ</footer><button class="sound" id="motion">Ⅱ หยุดการเคลื่อนไหว</button>
+<div class="veil" id="modal" hidden><section class="card" role="dialog" aria-modal="true" aria-labelledby="modalTitle" tabindex="-1"><div id="content"></div><button class="close" id="close">CLOSE ♡</button></section></div>
+<template id="letter"><div class="photo-frame letter-picture"><img src="assets/letter.gif" alt="ภาพเคลื่อนไหวประกอบจดหมายวันเกิด"></div><h2 id="modalTitle">ถึงพี่ ปอฝ้าย</h2><p>
+   สุขสันต์วันเกิดนะ หมาแก่ของผม ❤️🎂
+
+แก่ขึ้นอีกปีแล้วนะครับ 5555 💗
+
+วันเกิดปีนี้ผมก็ไม่รู้จะอวยพรอะไรให้พี่ดี เพราะผมอยากให้พี่มีความสุขในทุกๆวันอยู่แล้ว อยากให้พี่ได้เจอแต่เรื่องดีๆ มีคนใจดีกับพี่เยอะๆ อยากให้ทุกอย่างที่พี่ตั้งใจทำสำเร็จอย่างที่หวังไว้ แล้วก็อยากเห็นพี่ยิ้มได้แบบนี้ไปนานๆ เลย
+
+ผมรู้ว่าในแต่ละวันพี่ต้องเจออะไรตั้งมากมาย บางวันก็เหนื่อย บางวันก็มีเรื่องให้คิดเยอะแยะ แต่ผมอยากให้พี่รู้ไว้นะว่าพี่เก่งมากๆแล้ว ไม่จำเป็นต้องเก่งไปกว่านี้ก็ได้ ไม่ต้องฝืนยิ้มในวันที่ไม่ไหวด้วย ถ้าวันไหนเหนื่อยก็กลับมางอแงกับผมได้นะ ผมอาจจะไม่ได้เก่งเรื่องปลอบใจ แต่ผมจะอยู่ข้างๆ พี่ปอฝ้ายเอง
+
+ขอบคุณที่เข้ามาในชีวิตผม ขอบคุณที่ทำให้วันธรรมดาๆของผมมันไม่ธรรมดา555555 ขอบคุณที่คอยอยู่ด้วยกัน ไม่ว่าจะเป็นวันที่เราหัวเราะด้วยกัน หรือวันที่เราโกรธกันจนไม่อยากคุยกันผมดีใจจริงๆ นะที่ได้มีพี่อยู่ตรงนี้
+
+ผมไม่รู้หรอกว่าอนาคตจะเป็นยังไง เราจะต้องเจอเรื่องอะไรอีกบ้างทั้งดีและไม่ดี แต่ผมอยากอยู่ฉลองวันเกิดกับ พี่ปอฝ้าย ไปอีกหลายๆ ปีเลย อยากเห็นพี่เติบโต อยากเห็นพี่ทำสิ่งที่ฝันไว้สำเร็จ อยากเป็นคนที่ได้อยู่ข้างๆ แล้วบอกพี่ว่า "เห็นมั้ย พี่ปอฝ้าย ทำได้แล้ว ผมบอกแล้วว่าพี่เก่ง" 
+
+แล้วก็ขอโทษด้วยนะ ถ้าบางครั้งเค้าทำตัวไม่น่ารัก พูดอะไรไม่คิดโดยเฉพาะตอนเมา หรือทำให้เธอต้องเสียใจ ผมอาจจะไม่ใช่แฟนที่ดี แต่เค้าจะพยายามดูแลความรักของเราให้ดีที่สุดเท่าที่ผมจะทำได้
+
+ปีนี้ขอให้พี่รักตัวเองเยอะๆ อย่ากดดันตัวเองมากเกินไป อย่าลืมกินข้าวให้ตรงเวลา พักผ่อนเยอะๆ แล้วก็อย่าเก็บทุกเรื่องมาคิดคนเดียว เพราะตอนนี้พี่มีผมแล้วนะ มีอะไรก็บอกกันได้เสมอ
+
+**สุดท้ายนี้ ผมอยากบอกว่า ผมดีใจมากๆที่ผมได้รู้จัก พี่ปอฝ้าย ถึงจะไม่ถูกที่ถูกเวลาเท่าไหร่ แต่ดีใจยิ่งกว่าที่วันหนึ่งเราได้มาเจอกัน**
+
+ไม่รู้ว่าผมจะทำให้ทุกวันของพี่เป็นวันที่ดีได้ไหม แต่ผมสัญญาว่าจะพยายามไม่เป็นเหตุผลที่ทำให้พี่ต้องเสียใจ
+
+สุขสันต์วันเกิดอีกครั้งนะคะ หมาแก่คนเก่งของผม 🎂❤️
+
+**ขอให้พี่มีความสุขมากๆ และถ้าเป็นไปได้ ผมก็อยากเป็นส่วนหนึ่งของความสุขพี่ไปนาน ๆ เลย**
+
+รัก พี่ปอฝ้าย มากนะ มากกว่าที่ผมพูดออกมาได้อีก 🫶🏻💕
+
+ขอให้พี่ถูกรักอย่างดี
+ในแบบที่พี่เป็น 🎂✨</p><p class="caption">จากหมาเด็กคนหนึ่งในจักรวาลนี้</p></template>
+<template id="memory"><img class="theme-sticker" src="assets/icon-memory.webp" alt="Jun Lemon กับความทรงจำ"><h2 id="modalTitle">ความทรงจำของเรา ♡</h2><img id="photo" alt="ภาพตัวอย่างดวงดาวรูปหัวใจ"><p class="caption">ตรงนี้เก็บรูปของเราได้อีกหนึ่งความทรงจำ</p><label class="upload">เลือกรูปจากเครื่อง<input id="photoInput" type="file" accept="image/*"></label><p class="caption">รูปแสดงเฉพาะในหน้านี้ ไม่อัปโหลด และหายเมื่อปิดหน้า</p></template>
+<template id="wish"><img class="theme-sticker" src="assets/icon-wish.webp" alt="Jun Lemon ส่งคำอวยพร"><h2 id="modalTitle">คำอวยพรเล็ก ๆ ให้หมาแก่</h2><p>ลองเลือกดูรูปดูๆ55555</p><div class="cards"><button class="fortune" data-card="0" aria-label="เปิดคำอวยพรใบที่ 1"><img src="assets/card-1.jpg" alt="รูปความทรงจำใบที่ 1"></button><button class="fortune" data-card="1" aria-label="เปิดคำอวยพรใบที่ 2"><img src="assets/card-2.jpg" alt="รูปความทรงจำใบที่ 2"></button><button class="fortune" data-card="2" aria-label="เปิดคำอวยพรใบที่ 3"><img src="assets/card-3.jpg" alt="รูปความทรงจำใบที่ 3"></button></div><p id="fortuneText" aria-live="polite">ดวงไหนกำลังเรียกเธออยู่?</p></template>
+<script>
+let entered=false,entryProgress=0;
+const canvas=document.querySelector('#universe'),ctx=canvas.getContext('2d');let W=0,H=0,D=1,time=0,yaw=0,drag=false,lastX=0,lastT=0,playing=!matchMedia('(prefers-reduced-motion: reduce)').matches;
+let seed=19;function rand(){seed=(seed*1664525+1013904223)>>>0;return seed/4294967296}const stars=Array.from({length:250},()=>({x:rand(),y:rand(),r:rand()*1.1+.2,a:rand(),p:rand()*6.28}));const heart=[];
+for(let i=0;i<3600;i++){const u=rand()*Math.PI*2,v=rand()*Math.PI;const x=16*Math.pow(Math.sin(u),3),y=13*Math.cos(u)-5*Math.cos(2*u)-2*Math.cos(3*u)-Math.cos(4*u);const thickness=Math.sin(v);heart.push({x:x*thickness/16,y:(y*thickness+1)/16,z:Math.cos(v)*.33*Math.sin(u)*Math.sin(u),r:.45+rand()*1.1,p:rand()*6.28})}
+const disk=Array.from({length:7500},()=>{const r=.15+Math.pow(rand(),.72)*2.8,a=rand()*Math.PI*2;return{r,a:a+r*3.3,arm:Math.floor(rand()*3),s:rand()*.9+.25,j:(rand()-.5)*.09}});
+function size(){W=innerWidth;H=innerHeight;D=Math.min(devicePixelRatio||1,1.8);canvas.width=Math.round(W*D);canvas.height=Math.round(H*D);ctx.setTransform(D,0,0,D,0,0);draw()}
+function draw(){if(!W)return;ctx.globalCompositeOperation='source-over';ctx.fillStyle='#f8f7ed';ctx.fillRect(0,0,W,H);const reveal=entered?Math.max(.025,entryProgress):1;const zoom=.1+.9*(1-Math.pow(1-reveal,3));const scale=Math.min(W*.32,H*.32)*zoom,cx=W/2,cy=H*.36,base=H*.64;let g=ctx.createRadialGradient(cx,cy,0,cx,cy,scale*2);g.addColorStop(0,'#bbdecf70');g.addColorStop(.6,'#f2d4dd40');g.addColorStop(1,'transparent');ctx.fillStyle=g;ctx.fillRect(0,0,W,H);
+for(const s of stars){ctx.fillStyle=`rgba(94,139,107,${(.2+s.a*.5)*(.75+.25*Math.sin(time+s.p))})`;ctx.beginPath();ctx.arc(s.x*W,s.y*H,s.r,0,6.283);ctx.fill()}
+ctx.globalCompositeOperation='source-over';
+for(const p of disk){const a=p.r*3.5+p.arm*2.094+p.j*5+time*.2,x=Math.cos(a)*p.r,z=Math.sin(a)*p.r;const angle=yaw*.2,xx=x*Math.cos(angle)-z*Math.sin(angle),zz=x*Math.sin(angle)+z*Math.cos(angle);ctx.fillStyle=`hsla(${145+16*Math.sin(p.r*2)},35%,${49+15/p.r}%,${.18+.23*(1-p.r/3)})`;ctx.fillRect(cx+xx*scale,base+(zz*.24+p.j)*scale,p.s,p.s)}
+const halo=ctx.createRadialGradient(cx,base,2,cx,base,scale*.25);halo.addColorStop(0,'#fffaf0');halo.addColorStop(.07,'#aacdb5');halo.addColorStop(.15,'#8dbb9a90');halo.addColorStop(1,'transparent');ctx.fillStyle=halo;ctx.save();ctx.translate(cx,base);ctx.scale(1,.36);ctx.fillRect(-scale*.3,-scale*.3,scale*.6,scale*.6);ctx.restore();ctx.fillStyle='#f8f7ed';ctx.beginPath();ctx.ellipse(cx,base,scale*.08,scale*.025,0,0,6.283);ctx.fill();
+const a=yaw+time*.43,ca=Math.cos(a),sa=Math.sin(a),pulse=1+.025*Math.sin(time*2);const pts=heart.map(p=>({x:p.x*ca+p.z*sa,y:p.y,z:-p.x*sa+p.z*ca,r:p.r,p:p.p})).sort((a,b)=>a.z-b.z);
+for(const p of pts){const depth=3.6/(3.6-p.z),light=(p.z+1.2)/2.4,x=cx+p.x*scale*.74*depth*pulse,y=cy-p.y*scale*.74*depth*pulse;ctx.fillStyle=`hsla(${338+light*12},${45+light*20}%,${45+light*20}%,${.25+light*.64})`;const r=p.r*(.65+light*.55);ctx.beginPath();ctx.arc(x,y,r,0,6.283);ctx.fill();if(p.r>1.45&&light>.5){ctx.fillStyle='#dc96ab18';ctx.beginPath();ctx.arc(x,y,r*4,0,6.283);ctx.fill()}}
+ctx.globalCompositeOperation='source-over';
+// Text and floating keepsakes share the perspective of the galaxy.
+const phrases=['HAPPY BIRTHDAY ♡',
+'YOU + ME',
+'MY FAVORITE PERSON',
+'LITTLE MOMENTS ✧',
+'LOVE YOU',
+'POFIA TIN ♡',
+'ALWAYS TOGETHER',
+'SWEET AS YOU',
+'OUR LITTLE WORLD',
+'WITH ALL MY LOVE',
+'POFIA TIN ♡',
+'POFIA TIN ♡',
+'POFIA TIN ♡',
+'POFIA TIN ♡',
+'POFIA TIN ♡',
+'POFIA TIN ♡',
+'POFIA TIN ♡',
+'POFIA TIN ♡',
+'POFIA TIN ♡',
+'หมาแก่ หมาเด็ก ♡',
+'หมาแก่ หมาเด็ก ♡',
+'หมาแก่ หมาเด็ก ♡',
+'หมาแก่ หมาเด็ก ♡',
+'หมาแก่ หมาเด็ก ♡',
+'หมาแก่ หมาเด็ก ♡',
+];
+ctx.textAlign='center';ctx.textBaseline='middle';
+for(let i=0;i<phrases.length;i++){const a=i*2.399+time*.075+yaw*.22,r=1.25+(i%3)*.47,z=Math.sin(a)*r,x=Math.cos(a)*r;ctx.save();ctx.translate(cx+x*scale,base+z*scale*.28);ctx.rotate(Math.sin(a)*.1);const fs=Math.max(8,scale*(.035+(z+2.3)*.006));ctx.font=`bold ${fs}px monospace`;ctx.shadowColor='#d9a1b0';ctx.shadowBlur=0;ctx.fillStyle=`rgba(87,128,99,${.5+(z+2.3)*.1})`;ctx.fillText(phrases[i],0,0);ctx.restore()}
+for(let i=0;i<13;i++){const a=i*2.4-time*.14+yaw*.2,r=.9+(i%4)*.43,x=cx+Math.cos(a)*r*scale,y=base+Math.sin(a)*r*scale*.29-15-Math.sin(time+i)*8;ctx.save();ctx.translate(x,y);const n=scale*(.014+(Math.sin(a)+1)*.008);ctx.scale(n,n);ctx.beginPath();ctx.moveTo(0,.3);ctx.bezierCurveTo(-1.8,-.8,-.9,-1.8,0,-.8);ctx.bezierCurveTo(.9,-1.8,1.8,-.8,0,.3);ctx.shadowColor='#dba0b3';ctx.shadowBlur=18;ctx.fillStyle='#de91aa';ctx.fill();ctx.restore()}
+if(entered&&entryProgress<1){ctx.globalCompositeOperation='source-over';const strength=1-entryProgress;for(let i=0;i<95;i++){const a=i*2.399,r=((i*97+entryProgress*1000)%800)/800*Math.max(W,H);ctx.strokeStyle=`rgba(255,${120+i%100},220,${strength*.65})`;ctx.lineWidth=1+i%2;ctx.beginPath();ctx.moveTo(cx+Math.cos(a)*r,cy+Math.sin(a)*r*.7);ctx.lineTo(cx+Math.cos(a)*(r+strength*70),cy+Math.sin(a)*(r+strength*70)*.7);ctx.stroke()}ctx.globalCompositeOperation='source-over'}
+}
+
+function frame(t){const dt=lastT?Math.min((t-lastT)/1000,.05):0;lastT=t;if(entered&&playing&&!drag){time+=dt;entryProgress=Math.min(1,entryProgress+dt/2.4);draw()}requestAnimationFrame(frame)}
+canvas.onpointerdown=e=>{drag=true;lastX=e.clientX;canvas.setPointerCapture(e.pointerId)};canvas.onpointermove=e=>{if(drag){yaw+=(e.clientX-lastX)*.008;lastX=e.clientX;draw()}};canvas.onpointerup=canvas.onpointercancel=()=>drag=false;
+document.querySelector('#enter').onclick=()=>{entered=true;entryProgress=playing?0:1;document.body.classList.add('inside');const cover=document.querySelector('#welcome');cover.classList.add('leaving');setTimeout(()=>{cover.hidden=true;document.querySelector('.letter').focus()},600);draw()};
+const motion=document.querySelector('#motion');function sync(){motion.textContent=playing?'Ⅱ หยุดการเคลื่อนไหว':'▷ เล่นการเคลื่อนไหว';motion.setAttribute('aria-pressed',String(!playing))}motion.onclick=()=>{playing=!playing;sync()};
+const modal=document.querySelector('#modal'),content=document.querySelector('#content'),close=document.querySelector('#close');let opener=null,photoURL=null,photoData=null;const wishes=['ขอให้ปีนี้ได้เริ่มต้นสิ่งที่ฝันไว้\nและมีความกล้าพอที่จะลงมือทำในสิ่งใหม่ๆ ✨','ขอให้เจอความสุขในวันธรรมดา\nมีรอยยิ้มเล็กๆ ให้เก็บได้ทุกวัน 🌷','ขอให้มีคนรักพี่อย่างอ่อนโยน\nและอย่าลืมรักตัวเองด้วยนะ 🤍'];
+function openGift(id,button){opener=button;content.replaceChildren(document.querySelector('#'+id).content.cloneNode(true));modal.hidden=false;document.querySelector('.card').focus();if(id==='wish'){content.querySelectorAll('.fortune').forEach(b=>b.onclick=()=>{content.querySelectorAll('.fortune').forEach(x=>x.classList.remove('chosen'));b.classList.add('chosen');content.querySelector('#fortuneText').textContent=wishes[+b.dataset.card]})}if(id==='memory'){const img=content.querySelector('#photo');if(photoData)img.src=photoData;else{const c=document.createElement('canvas');c.width=600;c.height=400;const g=c.getContext('2d');g.fillStyle='#150b20';g.fillRect(0,0,600,400);g.fillStyle='#dcb0ec';g.font='95px Georgia';g.textAlign='center';g.fillText('♡',300,205);g.font='18px Georgia';g.fillText('Our little memories',300,265);img.src=c.toDataURL()}content.querySelector('#photoInput').onchange=e=>{const f=e.target.files[0];if(!f)return;if(!f.type.startsWith('image/'))return;if(photoURL)URL.revokeObjectURL(photoURL);photoURL=URL.createObjectURL(f);photoData=photoURL;img.src=photoURL;img.alt='ภาพความทรงจำที่เลือกจากเครื่อง'}}}
+document.querySelectorAll('[data-open]').forEach(b=>b.onclick=()=>openGift(b.dataset.open,b));function dismiss(){modal.hidden=true;opener?.focus()}close.onclick=dismiss;modal.onclick=e=>{if(e.target===modal)dismiss()};document.addEventListener('keydown',e=>{if(modal.hidden)return;if(e.key==='Escape')dismiss();if(e.key==='Tab'){const f=[...modal.querySelectorAll('button,input')],first=f[0],last=f[f.length-1];if(e.shiftKey&&(document.activeElement===first||document.activeElement.classList.contains('card'))){e.preventDefault();last.focus()}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus()}}});addEventListener('resize',size);sync();size();requestAnimationFrame(frame);
+</script></body></html>
